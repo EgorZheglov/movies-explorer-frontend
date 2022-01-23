@@ -1,0 +1,27 @@
+@import url(./vendor/normalize.css);
+
+@import url(./vendor/font-face.css);
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Inter;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.link {
+  opacity: 100%;
+}
+
+.link:hover {
+  transition: opacity 1s linear;
+  opacity: 80%;
+}

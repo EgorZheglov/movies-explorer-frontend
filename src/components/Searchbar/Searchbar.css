@@ -1,0 +1,84 @@
+.searchbar {
+  width: 100%;
+  margin-top: 80px;
+  margin-bottom: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.searchbar__input {
+  width: calc(100% - 206px);
+  border-radius: 20px;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 25px;
+  color: #a0a0a0;
+  border: 1px solid #e8e8e8;
+}
+
+.searchbar__search-button {
+  border: none;
+  width: 34px;
+  height: 34px;
+  background-image: url("../../images/searchlogo.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 7px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #3456f3;
+}
+
+.searchbar__text-input {
+  outline: none;
+  border: none;
+  width: 95%;
+}
+
+.searchbar__item {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.searchbar__checkbox {
+  display: none;
+}
+
+.searchbar__label {
+  margin-left: 14px;
+  height: 20px;
+  width: 36px;
+  background-color: #EBEBEB;
+  border-radius: 20px;
+  background-image: url("../../images/tumb.svg");
+  background-repeat: no-repeat;
+  background-position: center left 2px;
+  transition: background-position 0.3s linear;
+}
+
+.searchbar__label_checked {
+  background-color: #2be080;
+  background-position: center right 2px;
+  transition: background-position 0.3s linear;
+}
+
+@media (max-width: 800px) {
+  .searchbar {
+    flex-direction: column;
+  }
+
+  .searchbar__input {
+    width: calc(100% - 20px);
+    margin-bottom: 45px;
+  }
+}
