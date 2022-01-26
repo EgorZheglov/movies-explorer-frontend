@@ -1,5 +1,5 @@
 .technologies {
-  background-color: #f5f5f5;
+  background-color: #272727;
   width: 100%;
   max-width: 1440px;
   min-height: 634px;
@@ -55,7 +55,7 @@
 
 .technologies__list-item {
   margin-top: 5px;
-  background-color: #e8e8e8;
+  background-color: #303030;
   display: flex;
   align-items: center;
   justify-content: center;

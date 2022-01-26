@@ -5,6 +5,7 @@
   max-width: 1440px;
   height: 100%;
   align-items: center;
+  color: white
 }
 
 .profile__header {
@@ -37,7 +38,7 @@
   margin: 0;
   background-color: inherit;
   cursor: pointer;
-  color: black;
+  color: white;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -57,7 +58,7 @@
   border-radius: 6px;
   width: 30px;
   height: 30px;
-  background: #f5f5f5;
+  background: #313131;
   background-position: center;
   background-image: url("../../images/account.png");
   background-repeat: no-repeat;
@@ -87,7 +88,7 @@
 
 .profile__info-item:last-of-type {
   padding-top: 17px;
-  border-top: 1px solid #e8e8e8;
+  border-top: 1px solid #424242;
   padding-bottom: 0;
 }
 
@@ -117,6 +118,7 @@
   font-weight: 500;
   line-height: 16px;
   text-align: center;
+  color: white;
   border: none;
   background-color: inherit;
 }

@@ -2,9 +2,14 @@
   text-align: center;
 }
 
+.app__content{
+  background-color: #202020;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  background-color: #202020;
 }
 
 @media (prefers-reduced-motion: no-preference) {

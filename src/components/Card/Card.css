@@ -1,26 +1,28 @@
 .card {
-  width: 100%;
-  background-color: #f9f9f9;
+  color: white;
+  background-color: #222222;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 40px;
-  height: 134px;
+  margin: 0;
+  padding: 0;
+  max-width: 360px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 6px;
 }
 
 .card__title {
+  width: 100%;
   margin: 0;
-  margin-top: 22px;
-  font-size: 18px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 500;
-  line-height: 22px;
+  line-height: 18px;
   letter-spacing: 0px;
   text-align: left;
 }
 
 .card__duration {
-  margin-top: 13px;
+  width: 70px;
   font-size: 11px;
   font-style: normal;
   font-weight: 400;
@@ -31,76 +33,52 @@
 }
 
 .card__info {
-  margin-left: 22px;
+  margin-top: 18px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12px;
+  width: 100%;
+  flex-direction: row;
 }
 
 .card__image {
-  width: auto;
-  height: 122px;
   margin-top: 6px;
   margin-right: 6px;
 }
 
 .card__button {
-  margin-top: 30px;
-  width: 14px;
-  height: 12px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 11px;
+  letter-spacing: 0px;
+  text-align: center;
   border: none;
-  background-color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100px;
+  height: 29px;
+  content: "Сохранить";
+  color: white;
+  background-color: #313131;
   cursor: pointer;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-.card__button_not-active {
-  background-image: url("../../images/like.svg");
+  border-radius: 30px;
 }
 
 .card__button_is-active {
-  background-image: url("../../images/like_active.svg");
+  background-color: #ee3465;
+  background-image: url("../../images/like.svg");
 }
 
 .card__button_delete {
+  background-color: #313131;
   background-image: url("../../images/cross.png");
 }
 
-@media (max-width: 500px) {
-  .card {
-    height: min-content;
-    min-height: 237px;
-    border-radius: 6px;
-    background: #fdfdfd;
-    flex-direction: column-reverse;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 14px;
-  }
 
-  .card__image {
-    margin: 0;
-    width: 100%;
-    height: auto;
-  }
-
-  .card__duration {
-    margin-bottom: 14px;
-  }
-
-  .card__title {
-    margin-top: 14px;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 15px;
-    letter-spacing: 0px;
-    text-align: left;
-  }
-
-  .card__button {
-    position: absolute;
-    right: 18px;
-    bottom: 40px;
-  }
-}

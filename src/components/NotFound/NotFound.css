@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center; 
   min-height: 634px;
+  color: white;
 }
 
 .notfound__title {

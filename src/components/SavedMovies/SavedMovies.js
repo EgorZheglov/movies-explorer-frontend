@@ -22,8 +22,13 @@ function SavedMovies() {
           </div>
         </div>
         <Searchbar />
-        <Card />
-        <Card />
+        <div className="movies__grid">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
         <button className="movies__pag-button link">Ещё</button>
       </div>
     </div>

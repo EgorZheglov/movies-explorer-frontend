@@ -1,5 +1,5 @@
 .movies {
-  background-color: #ffffff;
+  background-color: #202020;
   width: 100%;
   max-width: 1440px;
   min-height: 634px;
@@ -10,6 +10,7 @@
   position: relative;
 }
 
+
 .movies__content {
   width: 90%;
   height: 100%;
@@ -17,6 +18,8 @@
   align-items: center;
   flex-direction: column;
 }
+
+
 
 .movies__logo {
   background-image: url("../../images/logo.svg");
@@ -48,7 +51,7 @@
   margin: 0;
   background-color: inherit;
   cursor: pointer;
-  color: black;
+  color: white;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -70,15 +73,26 @@
   border-radius: 6px;
   width: 30px;
   height: 30px;
-  background: #f5f5f5;
+  background: #313131;
   background-position: center;
   background-image: url("../../images/account.png");
   background-repeat: no-repeat;
 }
 
+.movies__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  column-gap: 24px;
+  row-gap: 35px;
+  margin-bottom: 50px;
+}
+
 .movies__pag-button {
   width: 100%;
-  background-color: #f9f9f9;
+  max-width: 320px;
+  background-color: #2F2F2F;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,9 +119,15 @@
   outline: none;
   border: none;
   background-color: inherit;
+  content: "Сохранить";
 }
 
 @media (max-width: 800px) {
+
+  .movies__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .movies__nav-button {
     display: none;
   }
@@ -119,5 +139,11 @@
   .movies__menu-button {
     display: block;
     background-image: url("../../images/guard.svg");
+  }
+}
+
+@media (max-width: 500px) {
+  .movies__grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

@@ -14,8 +14,9 @@ function Searchbar() {
           type="text"
           placeholder="Фильм"
         ></input>
-        <button className="searchbar__search-button link" />
+        <button className="searchbar__search-button link">Найти</button>
       </div>
+      <div className="searchbar__line"></div>
       <div className="searchbar__item">
         Короткометражки
         <input
@@ -25,7 +26,7 @@ function Searchbar() {
           type="checkbox"
           id="shorts"
           onChange={toggleCheckbox}
-        />
+        /> 
         <label
           className={`searchbar__label ${
             isCheckboxChecked ? "searchbar__label_checked" : ""

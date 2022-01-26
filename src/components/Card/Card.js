@@ -17,10 +17,10 @@ function Card() {
     <div className="card">
       <div className="card__info">
         <h1 className="card__title">33 слова о дизайне</h1>
-        <div className="card__duration">1ч 42м</div>
-        <button className={"card__button link " + buttonClassName} />
+        <div className="card__duration">47 минут</div>
       </div>
       <img className="card__image" src={require("../../images/pic.png")} />
+      <button className={"card__button link " + buttonClassName} />
     </div>
   );
 }
