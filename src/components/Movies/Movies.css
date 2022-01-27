@@ -1,0 +1,149 @@
+.movies {
+  background-color: #202020;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 634px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.movies__content {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.movies__logo {
+  background-image: url("../../images/logo.svg");
+  margin: 0;
+  width: 38px;
+  height: 38px;
+}
+
+.movies__header {
+  height: 74px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.movies__buttons {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.movies__nav-button {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  background-color: inherit;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: right;
+}
+
+.movies__nav-button_profile {
+  margin-left: 50px;
+}
+
+.movies__nav-button_is-active {
+  font-weight: 600;
+}
+
+.movies__acc-icon {
+  margin-left: 13px;
+  border-radius: 6px;
+  width: 30px;
+  height: 30px;
+  background: #313131;
+  background-position: center;
+  background-image: url("../../images/account.png");
+  background-repeat: no-repeat;
+}
+
+.movies__grid {
+  display: grid;
+  padding-top: 70px;
+  border-top: 1px solid #424242;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  column-gap: 24px;
+  row-gap: 35px;
+  margin-bottom: 50px;
+}
+
+.movies__pag-button {
+  width: 100%;
+  max-width: 320px;
+  background-color: #2f2f2f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: 0px;
+  text-align: center;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  height: 36px;
+  margin-bottom: 90px;
+}
+
+.movies__menu-button {
+  display: none;
+  width: 40px;
+  height: 43px;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  background-color: inherit;
+  content: "Сохранить";
+}
+
+@media (max-width: 1180px) {
+  .movies__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .movies__nav-button {
+    display: none;
+  }
+
+  .movies__acc-icon {
+    display: none;
+  }
+
+  .movies__menu-button {
+    display: block;
+    background-image: url("../../images/guard.svg");
+  }
+}
+
+@media (max-width: 690px) {
+  .movies__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
