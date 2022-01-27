@@ -1,6 +1,6 @@
 import Searchbar from "../Searchbar/Searchbar";
 import Card from "../Card/Card";
-import "../Movies/Movies.css"
+import "../Movies/Movies.css";
 import { Link } from "react-router-dom";
 
 function SavedMovies() {
@@ -8,13 +8,18 @@ function SavedMovies() {
     <div className="movies">
       <div className="movies__content">
         <div className="movies__header">
-          <div className="movies__logo" />
+          <Link to="/" className="movies__logo" />
           <div className="movies__buttons">
             <Link to="/movies" className="movies__nav-button link">
               Фильмы
             </Link>
-            <button className="movies__nav-button movies__nav-button_is-active link">Сохранённые фильмы</button>
-            <Link to="/profile" className="movies__nav-button movies__nav-button_profile link">
+            <button className="movies__nav-button movies__nav-button_is-active link">
+              Сохранённые фильмы
+            </button>
+            <Link
+              to="/profile"
+              className="movies__nav-button movies__nav-button_profile link"
+            >
               Аккаунт
               <div className="movies__acc-icon"></div>
             </Link>
@@ -29,7 +34,6 @@ function SavedMovies() {
           <Card />
           <Card />
         </div>
-        <button className="movies__pag-button link">Ещё</button>
       </div>
     </div>
   );

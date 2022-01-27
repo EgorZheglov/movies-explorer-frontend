@@ -2,6 +2,7 @@
   width: 100%;
   margin-top: 80px;
   margin-bottom: 74px;
+  height: 72px;
   display: flex;
   background-color: #222222;
   border: none;
@@ -28,13 +29,10 @@
   margin-right: 25px;
 }
 
-.searchbar__text-input {
-  outline: none;
-  border: none;
-  width: 95%;
-}
+
 
 input[type="text" i] {
+  height: 72px;
   color:white;
   background-color: #222222;
   padding: 1px 2px;
@@ -63,6 +61,7 @@ input[type="text" i] {
 }
 
 .searchbar__item {
+  margin-right: 30px;
   color: white;
   font-size: 13px;
   font-style: normal;
@@ -80,7 +79,7 @@ input[type="text" i] {
 }
 
 .searchbar__label {
-  margin-left: 14px;
+  margin-right: 14px;
   height: 20px;
   width: 36px;
   background-color: #313131;
@@ -102,10 +101,12 @@ input[type="text" i] {
   .searchbar {
     flex-direction: column;
     background-color: #202020;
+    padding-bottom: 45px;
   }
 
   .searchbar__input {
     background-color: #222222;
+    height: 72px;
     margin-left: 25px;
     border-radius: 9px;
   }
@@ -117,5 +118,9 @@ input[type="text" i] {
   .searchbar__input {
     width: calc(100% - 20px);
     margin-bottom: 45px;
+  }
+
+  .searchbar__label {
+    margin-bottom: inherit;
   }
 }

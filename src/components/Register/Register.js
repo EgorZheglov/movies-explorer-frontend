@@ -9,7 +9,7 @@ function Register() {
 
   return (
     <div className="register">
-      <div className="register__logo" />
+      <Link to="/" className="register__logo" />
       <div className="register__title">
         {path === "/login" ? "Рады видеть" : "Добро пожаловать!"}
       </div>

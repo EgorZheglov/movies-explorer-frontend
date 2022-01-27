@@ -5,7 +5,7 @@ function Profile() {
   return (
     <div className="profile">
       <div className="profile__header">
-        <div className="profile__logo" />
+        <Link to="/" className="profile__logo" />
         <div className="profile__buttons">
           <Link to="/movies" className="profile__nav-button link">Фильмы</Link>
           <Link to="/saved-movies" className="profile__nav-button link">Сохранённые фильмы</Link>

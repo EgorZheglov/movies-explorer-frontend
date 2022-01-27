@@ -9,7 +9,7 @@ function Movies() {
     <div className="movies">
       <div className="movies__content">
         <div className="movies__header">
-          <div className="movies__logo" />
+          <Link to="/" className="movies__logo" />
           <div className="movies__buttons">
             <button className="movies__nav-button movies__nav-button_is-active link">
               Фильмы

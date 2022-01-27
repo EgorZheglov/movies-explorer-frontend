@@ -26,7 +26,7 @@
   text-align: left;
   margin-bottom: 23px;
   height: 50px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #DADADA;
 }
 
 .student__info {
@@ -129,8 +129,8 @@
 }
 
 .student__work:last-of-type {
-    border: none;
-    margin-bottom: 125px;
+  border: none;
+  margin-bottom: 125px;
 }
 
 .student__work:hover {
@@ -138,16 +138,21 @@
   background-color: #303030;
 }
 
-
-@media (max-width: 800px) {
-  .student__description{
+@media (max-width: 1024px) {
+  .student__description {
     max-width: 364px;
   }
 }
 
-@media (max-width: 600px) {
-
+@media (max-width: 767px) {
   .student__info {
     flex-direction: column-reverse;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .student__img {
+    width: calc(100% -28px);
   }
 }

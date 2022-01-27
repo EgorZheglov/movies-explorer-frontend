@@ -18,7 +18,6 @@ function Searchbar() {
       </div>
       <div className="searchbar__line"></div>
       <div className="searchbar__item">
-        Короткометражки
         <input
           className="searchbar__checkbox"
           value={1}
@@ -33,6 +32,7 @@ function Searchbar() {
           }`}
           htmlFor="shorts"
         ></label>
+        Короткометражки
       </div>
     </div>
   );
