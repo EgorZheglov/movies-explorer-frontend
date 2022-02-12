@@ -22,21 +22,19 @@
   color: #a0a0a0;
 }
 
-.searchbar__line{
-  width:1px;
+.searchbar__line {
+  width: 1px;
   height: 40px;
   background-color: #505050;
   margin-right: 25px;
 }
 
-
-
-input[type="text" i] {
+/* input[type="text" i] {
   height: 72px;
   color:white;
   background-color: #222222;
   padding: 1px 2px;
-}
+} */
 
 .searchbar__search-button {
   margin-right: 20px;
@@ -58,6 +56,8 @@ input[type="text" i] {
   outline: none;
   border: none;
   width: 95%;
+  color: white;
+  background-color: #222222;
 }
 
 .searchbar__item {
@@ -83,6 +83,7 @@ input[type="text" i] {
   height: 20px;
   width: 36px;
   background-color: #313131;
+  cursor: pointer;
   border-radius: 20px;
   background-image: url("../../images/tumb.svg");
   background-repeat: no-repeat;
@@ -95,7 +96,6 @@ input[type="text" i] {
   background-position: center right 6px;
   transition: background-position 0.3s linear;
 }
-
 
 @media (max-width: 600px) {
   .searchbar {

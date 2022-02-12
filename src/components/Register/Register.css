@@ -22,7 +22,8 @@
   width: 100%;
   margin-bottom: 20px;
   outline: none;
-  background-color: #f9f9f9;
+  color: white;
+  background-color: #222222;
   border-radius: 8px;
   font-size: 13px;
   font-style: normal;
@@ -31,6 +32,29 @@
   letter-spacing: 0em;
   text-align: left;
 }
+
+.register__text-input_disabled {
+  border: 1px solid #ff004d;
+}
+
+.register__button_disabled {
+  background-color: #222222;
+  opacity: 50%;
+  cursor: pointer;
+  border: 1px solid white;
+}
+
+.register__message{
+  text-align: center;
+  color: #ff004d;
+}
+
+/* .input[type="text"] {
+  height: 72px;
+  padding-left: 15px;
+  color: white;
+  background-color: #222222;
+} */
 
 .register__title {
   font-size: 24px;
