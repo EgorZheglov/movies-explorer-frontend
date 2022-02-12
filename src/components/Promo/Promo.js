@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 import "./Promo.css";
 
 function Promo(props) {
@@ -43,9 +44,9 @@ function Promo(props) {
         </div>
         <div className="promo__footer">
           <nav className="promo__nav">
-            <button className="promo__nav-link">О проекте</button>
-            <button className="promo__nav-link">Технологии</button>
-            <button className="promo__nav-link">Студент</button>
+            <HashLink to='/#about' className="promo__nav-link">О проекте</HashLink>
+            <HashLink to='/#technologies' className="promo__nav-link">Технологии</HashLink>
+            <HashLink to='/#student' className="promo__nav-link">Студент</HashLink>
           </nav>
         </div>
       </div>
