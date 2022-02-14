@@ -72,3 +72,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 Link on deploy:
 http://api.movies.nomoredomains.work
+//Прошу прощения, случайно вмержил старый пул реквест, пожтому обновил Readme.md
