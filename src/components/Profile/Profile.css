@@ -5,7 +5,7 @@
   max-width: 1440px;
   height: 100%;
   align-items: center;
-  color: white;
+  color: white
 }
 
 .profile__header {
@@ -21,11 +21,6 @@
   margin: 0;
   width: 38px;
   height: 38px;
-}
-
-.profile__message{
-  color:#ff004d;
-  margin-top: 150px;
 }
 
 .profile__buttons {
@@ -115,23 +110,8 @@
   text-align: right;
 }
 
-.profile__text-input {
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  color: white;
-  background-color: #222222;
-}
-
-/* .input[type="text" i] {
-  height: 18px;
-  color: black;
-  background-color: white;
-  padding: 1px 2px;
-} */
-
 .profile__edit-button {
-  margin-top: 70px;
+  margin-top: 220px;
   cursor: pointer;
   font-size: 13px;
   font-style: normal;
@@ -143,9 +123,6 @@
   background-color: inherit;
 }
 
-.profile__text-input_error{
-  border: 1px solid #ff004d
-}
 .profile__logout-button {
   cursor: pointer;
   border: none;
@@ -154,19 +131,6 @@
   font-weight: 500;
   line-height: 16px;
   color: #ff004d;
-  background-color: inherit;
-  margin-top: 18px;
-  margin-bottom: 70px;
-}
-
-.profile__cancel-button {
-  cursor: pointer;
-  border: none;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 16px;
-  color: white;
   background-color: inherit;
   margin-top: 18px;
   margin-bottom: 70px;

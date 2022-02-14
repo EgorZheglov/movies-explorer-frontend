@@ -1,13 +1,10 @@
 import React from "react";
 import "./Searchbar.css";
 
-function Searchbar(props) {
+function Searchbar() {
   const [isCheckboxChecked, setCheckbox] = React.useState(false);
-  const [value, setValue] = React.useState("");
-  const toggleCheckbox = (e) => {
-    setCheckbox(!isCheckboxChecked);
-    props.shorts(isCheckboxChecked, value);
-  };
+
+  const toggleCheckbox = (e) => setCheckbox(!isCheckboxChecked);
 
   return (
     <div className="searchbar">
@@ -15,15 +12,9 @@ function Searchbar(props) {
         <input
           className="searchbar__text-input"
           type="text"
-          onChange={(e) => setValue(e.target.value)}
           placeholder="Фильм"
         ></input>
-        <button
-          onClick={(e) => props.sort(value)}
-          className="searchbar__search-button link"
-        >
-          Найти
-        </button>
+        <button className="searchbar__search-button link">Найти</button>
       </div>
       <div className="searchbar__line"></div>
       <div className="searchbar__item">
@@ -34,7 +25,7 @@ function Searchbar(props) {
           type="checkbox"
           id="shorts"
           onChange={toggleCheckbox}
-        />
+        /> 
         <label
           className={`searchbar__label ${
             isCheckboxChecked ? "searchbar__label_checked" : ""

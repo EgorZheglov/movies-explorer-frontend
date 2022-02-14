@@ -4,7 +4,7 @@ function About() {
   return (
     <div className="about">
       <div className="about__content">
-        <h1 id='about' className="about__header">О проекте</h1>
+        <h1 className="about__header">О проекте</h1>
         <div className="about__grid">
           <div>
             <h2 className="about__title">Дипломный проект включал 5 этапов</h2>

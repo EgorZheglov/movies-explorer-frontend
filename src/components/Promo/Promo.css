@@ -9,66 +9,6 @@
   position: relative;
 }
 
-.promo__buttons {
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.promo__nav-button {
-  border: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-decoration: underline;
-  text-align: center;
-  padding-top: 10px;
-  margin: 0;
-  background-color: inherit;
-  cursor: pointer;
-  color: white;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0em;
-  text-align: right;
-}
-
-.promo__nav-button:first-of-type{
-  margin-right: 10px;
-}
-
-.promo__nav-button_profile {
-  border: none;
-  margin-left: 50px;
-}
-
-.promo__acc-icon {
-  margin-left: 13px;
-  border-radius: 6px;
-  width: 30px;
-  height: 30px;
-  background: #313131;
-  background-position: center;
-  background-image: url("../../images/account.png");
-  background-repeat: no-repeat;
-}
-
-.promo__menu-button {
-  display: none;
-  width: 40px;
-  height: 43px;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
-  outline: none;
-  border: none;
-  background-color: inherit;
-  content: "Сохранить";
-}
-
 .promo__logo {
   background-image: url("../../images/logo.svg");
   margin: 0;
@@ -163,7 +103,6 @@
 
 .promo__nav-link {
   font-size: 12px;
-  padding-top: 8px;
   font-style: normal;
   font-weight: 500;
   line-height: 16px;
@@ -176,12 +115,12 @@
   background: #303030;
   margin-right: 10px;
   width: 96px;
-  height: 22px;
+  height: 36px;
   cursor: pointer;
   color: #ffffff;
 }
 
-.promo__nav-link:last-child {
+.promo__nav-link:last-child{
   margin-right: 0;
 }
 
@@ -205,32 +144,5 @@
 
   .promo__login-button {
     margin-left: 14px;
-  }
-}
-
-@media (max-width: 1180px) {
-  .promo__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 800px) {
-  .promo__nav-button {
-    display: none;
-  }
-
-  .promo__acc-icon {
-    display: none;
-  }
-
-  .promo__menu-button {
-    display: block;
-    background-image: url("../../images/guard.svg");
-  }
-}
-
-@media (max-width: 690px) {
-  .promo__grid {
-    grid-template-columns: repeat(1, 1fr);
   }
 }

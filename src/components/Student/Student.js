@@ -4,7 +4,7 @@ function Student() {
   return (
     <div className="student">
       <div className="student__content">
-        <h1 id="student" className="student__header">Студент</h1>
+        <h1 className="student__header">Студент</h1>
         <div className="student__info">
           <div className="student__description">
             <h2 className="student__title">Егор</h2>

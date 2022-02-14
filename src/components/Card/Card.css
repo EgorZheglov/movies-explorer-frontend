@@ -21,8 +21,6 @@
   line-height: 18px;
   letter-spacing: 0px;
   text-align: left;
-  max-width: 240px;
-  min-height: 36px;
 }
 
 .card__duration {
@@ -48,7 +46,6 @@
 }
 
 .card__image {
-  height: 190px;
   width: 100%;
   margin: 0;
   margin-top: 6px;
@@ -89,10 +86,15 @@
   background-image: url("../../images/cross.png");
 }
 
-
-@media (max-width: 690px) {
+@media (max-width: 1180px) {
   .card {
-    width: 100%;
+    width: 342px;
+  }
+}
+
+@media (max-width: 700px) {
+  .card {
+    width: 300px;
   }
 
   .card__title {
