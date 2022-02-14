@@ -18,15 +18,6 @@
   flex-direction: column;
 }
 
-.movies__loading {
-  color: white;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0em;
-  text-align: right;
-}
 .movies__logo {
   background-image: url("../../images/logo.svg");
   margin: 0;
@@ -87,7 +78,6 @@
 
 .movies__grid {
   display: grid;
-  width: 100%;
   padding-top: 70px;
   border-top: 1px solid #424242;
   grid-template-columns: repeat(3, 1fr);
@@ -155,6 +145,5 @@
 @media (max-width: 690px) {
   .movies__grid {
     grid-template-columns: repeat(1, 1fr);
-    padding-left: auto;
   }
 }

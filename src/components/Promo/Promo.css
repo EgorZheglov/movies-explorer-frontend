@@ -9,6 +9,7 @@
   position: relative;
 }
 
+<<<<<<< HEAD
 .promo__buttons {
   margin: 0;
   display: flex;
@@ -69,6 +70,8 @@
   content: "Сохранить";
 }
 
+=======
+>>>>>>> parent of 6c0bc11 (level-3 js & React)
 .promo__logo {
   background-image: url("../../images/logo.svg");
   margin: 0;
@@ -181,7 +184,7 @@
   color: #ffffff;
 }
 
-.promo__nav-link:last-child {
+.promo__nav-link:last-child{
   margin-right: 0;
 }
 
@@ -205,32 +208,5 @@
 
   .promo__login-button {
     margin-left: 14px;
-  }
-}
-
-@media (max-width: 1180px) {
-  .promo__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 800px) {
-  .promo__nav-button {
-    display: none;
-  }
-
-  .promo__acc-icon {
-    display: none;
-  }
-
-  .promo__menu-button {
-    display: block;
-    background-image: url("../../images/guard.svg");
-  }
-}
-
-@media (max-width: 690px) {
-  .promo__grid {
-    grid-template-columns: repeat(1, 1fr);
   }
 }
