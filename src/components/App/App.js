@@ -44,25 +44,35 @@ function App() {
       return;
     }
 
-    mainApi.tokenCheck(jwt).then((res) => {
-      mainApi.setToken(jwt);
+    mainApi
+      .tokenCheck(jwt)
+      .then((res) => {
+        mainApi.setToken(jwt);
 
-      moviesApi
-        .getMovies()
-        .then((res) => {
-          setMovies(res);
-          mainApi
-            .getUserData()
-            .then((res) => setUser(res))
-            .catch((er) =>
-              console.log(`ошибка загрузки данных пользователя ${er}`)
-            );
-        })
-        .catch((er) => console.log(`ошибка загрузки фильмов ${er}`));
-
-      setIsLoading(false);
-      setLogIn(true);
-    });
+        moviesApi
+          .getMovies()
+          .then((res) => {
+            setMovies(res);
+            mainApi
+              .getUserData()
+              .then((res) => setUser(res))
+              .catch((er) => {
+                console.log(`ошибка загрузки данных пользователя ${er}`);
+                history.push("/");
+              });
+          })
+          .catch((er) =>
+            console.log(`ошибка загрузки фильмов из стороннего api
+             попробуйте позже ${er}`)
+          );
+        setIsLoading(false);
+        setLogIn(true);
+      })
+      .catch((e) => {
+        localStorage.removeItem("jwt");
+        console.log(`ошибка проверки токена! ${e}`);
+        history.push("/");
+      });
   }, []);
 
   function handleSignIn(email, password) {
