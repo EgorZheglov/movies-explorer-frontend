@@ -17,6 +17,14 @@
   justify-content: center;
 }
 
+.spinner__movies {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .rotation {
   animation: rotation 1s infinite linear;
 }

@@ -74,6 +74,11 @@
   font-weight: 600;
 }
 
+.movies__notfound{
+  color:white;
+  margin-bottom: 10px;
+}
+
 .movies__acc-icon {
   margin-left: 13px;
   border-radius: 6px;

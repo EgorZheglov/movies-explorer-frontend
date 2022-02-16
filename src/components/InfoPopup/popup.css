@@ -1,0 +1,78 @@
+.popup {
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: black;
+  display: none;
+}
+
+.popup_is-opened {
+  display: block;
+}
+
+.popup__registration-image {
+  margin-top: 10px;
+}
+
+.popup__continiue {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  width: 80%;
+  height: 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.popup__close {
+  position: absolute;
+  top: -48.25px;
+  right: -48.25px;
+  width: 40px;
+  cursor: pointer;
+  height: 40px;
+  background-image: url(../../images/Close-Icon.svg);
+  background-color: rgba(255, 234, 13, 0);
+  border: none;
+  background-position: center;
+  transition: opacity linear 1s;
+}
+
+.popup__close:hover {
+  opacity: 0.6;
+}
+
+.popup__container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 90px;
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 430px;
+}
+
+@media (max-width: 550px) {
+  .popup__container {
+    width: 282px;
+  }
+}
+
+@media (max-width: 425px) {
+  .popup__close {
+    width: 25px;
+    height: 25px;
+    right: 0px;
+    background-image: url(../../images/Close_Icon320.svg); /*Визуально просто разница не очень заметна*/
+  }
+}

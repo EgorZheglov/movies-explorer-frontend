@@ -1,5 +1,5 @@
 import "./Register.css";
-import { useLocation } from "react-router";
+import { useLocation, useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import React from "react";
 
@@ -15,6 +15,11 @@ function Register(props) {
 
   const location = useLocation();
   const path = location.pathname;
+  const history = useHistory();
+
+  if (props.loggedIn) {
+    history.push("/");
+  }
 
   const checkButton = () => {
     if (path === "/login") {
@@ -99,6 +104,13 @@ function Register(props) {
             onChange={handleChangeName}
             type="text"
           ></input>
+          <div
+            className={`register__span ${
+              nameValidity ? "register__span_disabled" : ""
+            }`}
+          >
+            Длинна имени от 2-ух до 30-ти символов
+          </div>
         </>
       )}
       <div className="register__description">E-mail</div>
@@ -110,6 +122,13 @@ function Register(props) {
         onChange={handleChangeEmail}
         type="text"
       ></input>
+      <div
+        className={`register__span ${
+          emailValidity ? "register__span_disabled" : ""
+        }`}
+      >
+        Введите корректный email
+      </div>
       <div className="register__description">Пароль</div>
       <input
         className={`register__text-input ${
@@ -119,12 +138,14 @@ function Register(props) {
         onChange={handleChangePassword}
         type="password"
       ></input>
+      <div
+        className={`register__span ${
+          passwordValidity ? "register__span_disabled" : ""
+        }`}
+      >
+        Длинна пароля от 3-ех до 30-ти символов
+      </div>
 
-      {!emailValidity || !passwordValidity || !nameValidity ? (
-        <div className="register__message">Введите корректные данные</div>
-      ) : (
-        ""
-      )}
       {path === "/login" ? (
         <>
           {!emailValidity || !passwordValidity || !renderButton ? (

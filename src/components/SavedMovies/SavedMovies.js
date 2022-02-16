@@ -4,14 +4,17 @@ import "../Movies/Movies.css";
 import mainApi from "../../utils/MainApi";
 import { Link } from "react-router-dom";
 import React from "react";
+import spinner from "../../images/spinner2.png";
 import useWindowDimensions from "../../utils/WindowDimenshions";
 
-function SavedMovies() {
+function SavedMovies(props) {
   const [resultsArray, setResults] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [allowShorts, setShorts] = React.useState(true);
+  const [allowShorts, setShorts] = React.useState(false);
   const [counter, setCounter] = React.useState(12);
   const [pagValue, setPagValue] = React.useState(3);
+  const [notFound, setNotFound] = React.useState(false);
+  const [touched, setTouched] = React.useState(false);
   const { height, width } = useWindowDimensions();
 
   React.useState(() => {
@@ -40,7 +43,7 @@ function SavedMovies() {
     }
   };
 
-  const moviesSort = (value) =>
+  const moviesSort = (value) => {
     setResults(
       resultsArray.filter(
         (movie) =>
@@ -48,9 +51,19 @@ function SavedMovies() {
             (movie.nameEN
               ? movie.nameEN.toLowerCase().includes(value)
               : false)) &&
-          (allowShorts ? true : movie.duration > 40)
+          (allowShorts ? true : movie.duration > 70)
       )
     );
+    setTouched(true);
+  };
+
+  React.useEffect(() => {
+    if (resultsArray.length === 0) {
+      setNotFound(true);
+    } else {
+      setNotFound(false);
+    }
+  }, [resultsArray]);
 
   React.useEffect(() => {
     mainApi
@@ -101,9 +114,20 @@ function SavedMovies() {
             ))}
           </div>
         ) : (
-          <h1 className="movies__loading">Загрузка Фильмов...</h1>
+          <div className="spinner__movies">
+            <img
+              className="spinner__img rotation"
+              src={spinner}
+              alt="Загрузка"
+            />
+            <h3 className="spinner-title">Загрузка</h3>
+          </div>
         )}
-
+        {notFound && touched ? (
+          <div className="movies__notfound">Ничего не найдено</div>
+        ) : (
+          ""
+        )}
         {counter > resultsArray.length ? (
           ""
         ) : (

@@ -36,13 +36,21 @@ function Profile(props) {
   };
 
   const handleUpdate = (name, email) => {
-    if(emailValidity && nameValidity) {
+    if (emailValidity && nameValidity) {
       props.handleUpdate(name, email);
       setIsEditing(false);
     } else {
       return;
     }
-  }
+  };
+
+  const checkButton = () => {
+    if (name === currentUser.name && email === currentUser.email) {
+      return false;
+    } else {
+      return true;
+    }
+  };
 
   return (
     <div className="profile">
@@ -69,15 +77,24 @@ function Profile(props) {
           {!isEditing ? (
             <div className="profile__name">{currentUser.name}</div>
           ) : (
-            <input
-              className={`profile__text-input ${
-                nameValidity ? "" : "profile__text-input_error"
-              }`}
-              value={name}
-              placeholder="Введите имя"
-              onChange={(e) => handleChangeName(e.target.value)}
-              type="text"
-            ></input>
+            <div className="profile__input">
+              <input
+                className={`profile__text-input ${
+                  nameValidity ? "" : "profile__text-input_error"
+                }`}
+                value={name}
+                placeholder="Введите имя"
+                onChange={(e) => handleChangeName(e.target.value)}
+                type="text"
+              ></input>
+              <div
+                className={`profile__span ${
+                  nameValidity ? "profile__span_disabled" : ""
+                }`}
+              >
+                Длинна имени от 2-ух до 30-ти символов
+              </div>
+            </div>
           )}
         </div>
         <div className="profile__info-item">
@@ -85,20 +102,24 @@ function Profile(props) {
           {!isEditing ? (
             <div className="profile__name">{currentUser.email}</div>
           ) : (
-            <input
-              className={`profile__text-input ${
-                emailValidity ? "" : "profile__text-input_error"
-              }`}
-              value={email}
-              placeholder="Введите E-mail"
-              onChange={(e) => handleChangeEmail(e.target.value)}
-              type="text"
-            ></input>
+            <div className="profile__input">
+              <input
+                className={`profile__text-input ${
+                  emailValidity ? "" : "profile__text-input_error"
+                }`}
+                value={email}
+                placeholder="Введите E-mail"
+                onChange={(e) => handleChangeEmail(e.target.value)}
+                type="text"
+              ></input>
+              <div className={`profile__span ${
+                  emailValidity ? "profile__span_disabled" : ""
+                }`}>Введите корректный email</div>
+            </div>
           )}
         </div>
       </div>
       <div className="profile__message">
-        {emailValidity && nameValidity ? "" : "Введите корректные данные"}
       </div>
       {!isEditing ? (
         <button
@@ -107,13 +128,15 @@ function Profile(props) {
         >
           Редактировать
         </button>
-      ) : (
+      ) : emailValidity && nameValidity && checkButton() ? (
         <button
           onClick={() => handleUpdate(name, email)}
           className="profile__edit-button link"
         >
           Сохранить
         </button>
+      ) : (
+        <button className="profile__edit-button disabled">Сохранить</button>
       )}
       {!isEditing ? (
         <button

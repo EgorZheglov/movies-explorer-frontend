@@ -19,6 +19,23 @@ function Card(props) {
       .catch((e) => console.log(`Не удалось сохранить фильм ${e}`));
   };
 
+  React.useEffect(() => {
+    if (props.movies) {
+      const el = props.movies.find(
+        (el) =>
+          el.nameRU === movie.nameRU &&
+          el.nameEN === movie.nameEN &&
+          el.duration === movie.duration &&
+          el.trailer === movie.trailerLink
+      );
+
+      if (el) {
+        setId(el._id);
+        setLike(true);
+      }
+    }
+  }, []);
+
   const cardDislike = () => {
     MainApi.deleteMovie(id)
       .then((res) => {
@@ -53,13 +70,21 @@ function Card(props) {
     }
   }
 
+  const handleClick = () => {
+    window.location.assign(movie.trailerLink);
+  };
+
   return (
     <div className="card">
       <div className="card__info">
         <h1 className="card__title">{movie.nameRU}</h1>
         <div className="card__duration">{movie.duration} минут</div>
       </div>
-      <img className="card__image" src={image} />
+      <img
+        onClick={() => handleClick()}
+        className="card__image link"
+        src={image}
+      />
       {location.pathname === "/movies" ? (
         <button
           onClick={(e) => toggleLikeButton(movie)}

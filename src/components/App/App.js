@@ -13,12 +13,15 @@ import mainApi from "../../utils/MainApi";
 import moviesApi from "../../utils/MoviesApi";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import Spinner from "../Spinner/Spinner";
+import InfoPopup from "../InfoPopup/InfoPopup";
 import { UserContext } from "../contexts/UserContext";
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(true);
   const [loggedIn, setLogIn] = React.useState(true);
   const [movies, setMovies] = React.useState(null);
+  const [openPopup, setIsOpen] = React.useState(false);
+  const [signSucces, setSignSucces] = React.useState(true);
   const [currentUser, setUser] = React.useState({
     name: "",
     email: "",
@@ -65,6 +68,7 @@ function App() {
             console.log(`ошибка загрузки фильмов из стороннего api
              попробуйте позже ${er}`)
           );
+
         setIsLoading(false);
         setLogIn(true);
       })
@@ -100,6 +104,7 @@ function App() {
         history.push("/movies");
       })
       .catch((err) => {
+        openPopupHandler(false);
         console.log(`Ошибка авторизации ${err}`);
         history.push("/");
       });
@@ -110,21 +115,34 @@ function App() {
       .signUp(name, email, password)
       .then((res) => {
         handleSignIn(email, password);
+        openPopupHandler(true);
       })
       .catch((err) => {
+        openPopupHandler(false);
         console.log(`Ошибка Регистрации ${err}`);
       });
   }
 
-  // if (loggedIn) {
-  //   history.push("/movies");
-  // }
-
   const updateUser = (name, email) => {
     mainApi
       .sendUserData(name, email)
-      .then((res) => setUser(res))
-      .catch((e) => console.log(`ошибка обновления данных!${e}`));
+      .then((res) => {
+        setUser(res);
+        openPopupHandler(true);
+      })
+      .catch((e) => {
+        openPopupHandler(false);
+        console.log(`ошибка обновления данных!${e}`);
+      });
+  };
+
+  const closePopup = () => {
+    setIsOpen(false);
+  };
+
+  const openPopupHandler = (succes) => {
+    setSignSucces(succes);
+    setIsOpen(true);
   };
 
   return (
@@ -160,10 +178,10 @@ function App() {
                 loggedIn={loggedIn}
               />
               <Route path="/sign-up">
-                <Register handleSignUp={handleSignUp} />
+                <Register loggedIn={loggedIn} handleSignUp={handleSignUp} />
               </Route>
               <Route path="/login">
-                <Register handleSignIn={handleSignIn} />
+                <Register loggedIn={loggedIn} handleSignIn={handleSignIn} />
               </Route>
               <Route path="*">
                 <NotFound />
@@ -175,6 +193,11 @@ function App() {
           <Spinner />
         )}
       </UserContext.Provider>
+      <InfoPopup
+        isSuccesed={signSucces}
+        isOpen={openPopup}
+        onClose={closePopup}
+      />
     </div>
   );
 }
