@@ -10,6 +10,7 @@ function Card(props) {
   const [like, setLike] = React.useState(false);
   const location = useLocation();
   let image;
+  
   const cardLike = (movie) => {
     MainApi.saveMovie(movie)
       .then((res) => {
@@ -23,10 +24,7 @@ function Card(props) {
     if (props.movies) {
       const el = props.movies.find(
         (el) =>
-          el.nameRU === movie.nameRU &&
-          el.nameEN === movie.nameEN &&
-          el.duration === movie.duration &&
-          el.trailer === movie.trailerLink
+          el.nameRU === movie.nameRU 
       );
 
       if (el) {
@@ -71,7 +69,11 @@ function Card(props) {
   }
 
   const handleClick = () => {
-    window.location.assign(movie.trailerLink);
+    if(movie.trailerLink) {
+      window.open(movie.trailerLink);
+    } else {
+      window.open(movie.trailer);
+    }
   };
 
   return (

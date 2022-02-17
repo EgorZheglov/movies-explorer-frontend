@@ -22,6 +22,7 @@ function Movies(props) {
   const { height, width } = useWindowDimensions();
 
   const moviesSort = (value) => {
+    sessionStorage.setItem("checkbox", allowShorts.toString());
     setResults(
       movies.filter(
         (movie) =>
@@ -29,7 +30,7 @@ function Movies(props) {
             (movie.nameEN
               ? movie.nameEN.toLowerCase().includes(value)
               : false)) &&
-          (allowShorts ? true : movie.duration > 70)
+          (!allowShorts ? true : movie.duration < 70)
       )
     );
     setTouched(true);
@@ -47,6 +48,17 @@ function Movies(props) {
   React.useState(() => {
     if (sessionStorage.getItem("movies")) {
       setResults(JSON.parse(sessionStorage.getItem("movies")));
+    }
+
+    if (sessionStorage.getItem("checkbox")) {
+      const checkbox = sessionStorage.getItem("checkbox");
+      if (checkbox) {
+        if (checkbox === "true") {
+          setShorts(true);
+        } else {
+          setShorts(false);
+        }
+      }
     }
 
     MainApi.getMovies().then((res) => {

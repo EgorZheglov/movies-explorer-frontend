@@ -51,7 +51,7 @@ function SavedMovies(props) {
             (movie.nameEN
               ? movie.nameEN.toLowerCase().includes(value)
               : false)) &&
-          (allowShorts ? true : movie.duration > 70)
+          (!allowShorts ? true : movie.duration < 70)
       )
     );
     setTouched(true);

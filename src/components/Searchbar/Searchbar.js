@@ -1,15 +1,13 @@
 import React from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
-import { useEffect } from "react";
 import "./Searchbar.css";
 
 function Searchbar(props) {
-  const [isCheckboxChecked, setCheckbox] = React.useState(true);
+  const [isCheckboxChecked, setCheckbox] = React.useState(false);
   const [value, setValue] = React.useState("");
   const location = useLocation();
 
   const toggleCheckbox = (e) => {
-    sessionStorage.setItem("checkbox", !isCheckboxChecked.toString());
     setCheckbox(!isCheckboxChecked);
     props.shorts(isCheckboxChecked, value);
   };
@@ -33,6 +31,7 @@ function Searchbar(props) {
 
   const handleSort = () => {
     props.sort(value);
+    props.shorts(isCheckboxChecked);
   };
 
   const handleTextInput = (e) => {
