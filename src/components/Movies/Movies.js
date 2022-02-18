@@ -22,7 +22,8 @@ function Movies(props) {
   const { height, width } = useWindowDimensions();
 
   const moviesSort = (value) => {
-    sessionStorage.setItem("checkbox", allowShorts.toString());
+    setIsLoading(true);
+    localStorage.setItem("checkbox", allowShorts.toString());
     setResults(
       movies.filter(
         (movie) =>
@@ -30,28 +31,20 @@ function Movies(props) {
             (movie.nameEN
               ? movie.nameEN.toLowerCase().includes(value)
               : false)) &&
-          (!allowShorts ? true : movie.duration < 70)
+          (!allowShorts ? true : movie.duration < 50)
       )
     );
     setTouched(true);
   };
 
-  React.useEffect(() => {
-    if (resultsArray.length === 0) {
-      setNotFound(true);
-    } else {
-      setNotFound(false);
-    }
-    sessionStorage.setItem("movies", JSON.stringify(resultsArray));
-  }, [resultsArray]);
-
   React.useState(() => {
-    if (sessionStorage.getItem("movies")) {
-      setResults(JSON.parse(sessionStorage.getItem("movies")));
+    setIsLoading(true);
+    if (localStorage.getItem("movies")) {
+      setResults(JSON.parse(localStorage.getItem("movies")));
     }
 
-    if (sessionStorage.getItem("checkbox")) {
-      const checkbox = sessionStorage.getItem("checkbox");
+    if (localStorage.getItem("checkbox")) {
+      const checkbox = localStorage.getItem("checkbox");
       if (checkbox) {
         if (checkbox === "true") {
           setShorts(true);
@@ -61,10 +54,12 @@ function Movies(props) {
       }
     }
 
-    MainApi.getMovies().then((res) => {
-      setSavedMovies(res);
-      setIsLoading(false);
-    });
+    MainApi.getMovies()
+      .then((res) => {
+        console.log(isLoading);
+        setSavedMovies(res);
+      })
+      .then(() => setIsLoading(false));
 
     if (width < 768) {
       setCounter(8);
@@ -77,12 +72,30 @@ function Movies(props) {
   }, []);
 
   React.useEffect(() => {
-    if (value) moviesSort(value);
+    if (resultsArray.length === 0) {
+      setNotFound(true);
+    } else {
+      setNotFound(false);
+    }
+    localStorage.setItem("movies", JSON.stringify(resultsArray));
+    setIsLoading(false);
+  }, [resultsArray]);
+
+  React.useEffect(() => {
+    if (value !== "" && value !== undefined) moviesSort(value);
   }, [allowShorts, value]);
 
   const changeShorts = (shorts, value) => {
     setShorts(!shorts);
     setValue(value);
+  };
+
+  const toggleCardLike = (movie) => {
+    if (savedMovies.some((el) => el.nameRU === movie.nameRU)) {
+      setSavedMovies(savedMovies.filter((el) => el.nameRU !== movie.nameRU));
+    } else {
+      setSavedMovies([...savedMovies, movie]);
+    }
   };
 
   return (
@@ -111,7 +124,12 @@ function Movies(props) {
         {!isLoading ? (
           <div className="movies__grid">
             {resultsArray.slice(0, counter).map((movie, i) => (
-              <Card key={i} movies={savedMovies} movie={movie} />
+              <Card
+                toggleCardLike={toggleCardLike}
+                key={i}
+                movies={savedMovies}
+                movie={movie}
+              />
             ))}
           </div>
         ) : (

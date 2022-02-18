@@ -10,7 +10,9 @@ import useWindowDimensions from "../../utils/WindowDimenshions";
 function SavedMovies(props) {
   const [resultsArray, setResults] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
+  const [savedMovies, setSavedMovies] = React.useState([]);
   const [allowShorts, setShorts] = React.useState(false);
+  const [value, setValue] = React.useState("");
   const [counter, setCounter] = React.useState(12);
   const [pagValue, setPagValue] = React.useState(3);
   const [notFound, setNotFound] = React.useState(false);
@@ -28,30 +30,24 @@ function SavedMovies(props) {
     }
   }, []);
 
+   React.useEffect(() => {
+     moviesSort(value);
+   }, [allowShorts, value]);
+
   const changeShorts = (shorts, value) => {
-    setShorts(shorts);
-    if (!allowShorts) {
-      moviesSort(value);
-    } else {
-      mainApi
-        .getMovies()
-        .then((res) => {
-          setResults(res);
-          setIsLoading(false);
-        })
-        .catch((e) => console.log(e));
-    }
+    setShorts(!shorts);
+    setValue(value);
   };
 
   const moviesSort = (value) => {
     setResults(
-      resultsArray.filter(
+      savedMovies.filter(
         (movie) =>
           (movie.nameRU.toLowerCase().includes(value) ||
             (movie.nameEN
               ? movie.nameEN.toLowerCase().includes(value)
               : false)) &&
-          (!allowShorts ? true : movie.duration < 70)
+          (!allowShorts ? true : movie.duration < 50)
       )
     );
     setTouched(true);
@@ -70,6 +66,7 @@ function SavedMovies(props) {
       .getMovies()
       .then((res) => {
         setResults(res);
+        setSavedMovies(res);
         setIsLoading(false);
       })
       .catch((e) => console.log(e));
@@ -79,7 +76,7 @@ function SavedMovies(props) {
     mainApi
       .deleteMovie(id)
       .then((res) =>
-        setResults(resultsArray.filter((movie) => movie._id !== id))
+        setResults(savedMovies.filter((movie) => movie._id !== id))
       )
       .catch((e) => console.log(`Не удалось удалить фильм ${e}`));
   };

@@ -14,7 +14,7 @@ function Searchbar(props) {
 
   React.useEffect(() => {
     if (location.pathname === "/movies") {
-      const checkbox = sessionStorage.getItem("checkbox");
+      const checkbox = localStorage.getItem("checkbox");
       if (checkbox) {
         if (checkbox === "true") {
           setCheckbox(true);
@@ -22,7 +22,7 @@ function Searchbar(props) {
           setCheckbox(false);
         }
       }
-      const value = sessionStorage.getItem("value");
+      const value = localStorage.getItem("value");
       if (value) {
         setValue(value);
       }
@@ -31,11 +31,12 @@ function Searchbar(props) {
 
   const handleSort = () => {
     props.sort(value);
-    props.shorts(isCheckboxChecked);
   };
 
   const handleTextInput = (e) => {
-    sessionStorage.setItem("value", e.target.value);
+    if (location.pathname === "/movies") {
+      localStorage.setItem("value", e.target.value);
+    }
     setValue(e.target.value);
   };
 

@@ -33,6 +33,9 @@ function App() {
   function handleLogOut() {
     history.push("/");
     localStorage.removeItem("jwt");
+    localStorage.removeItem("checkbox");
+    localStorage.removeItem("movies");
+    localStorage.removeItem("value");
     setLogIn(false);
 
     mainApi.setToken(null);

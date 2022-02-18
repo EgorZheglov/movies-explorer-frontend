@@ -9,8 +9,10 @@ function Card(props) {
   const [id, setId] = React.useState("");
   const [like, setLike] = React.useState(false);
   const location = useLocation();
+  const movies = props.movies;
+
   let image;
-  
+
   const cardLike = (movie) => {
     MainApi.saveMovie(movie)
       .then((res) => {
@@ -20,6 +22,7 @@ function Card(props) {
       .catch((e) => console.log(`Не удалось сохранить фильм ${e}`));
   };
 
+  
   React.useEffect(() => {
     if (props.movies) {
       const el = props.movies.find(
@@ -32,7 +35,7 @@ function Card(props) {
         setLike(true);
       }
     }
-  }, []);
+  }, [props.movies]);
 
   const cardDislike = () => {
     MainApi.deleteMovie(id)
@@ -54,6 +57,7 @@ function Card(props) {
     } else {
       cardDislike(id);
     }
+    props.toggleCardLike(movie);
   };
   let buttonClassName;
 
@@ -76,6 +80,7 @@ function Card(props) {
     }
   };
 
+  
   return (
     <div className="card">
       <div className="card__info">
