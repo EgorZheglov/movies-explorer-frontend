@@ -56,7 +56,6 @@ function Movies(props) {
 
     MainApi.getMovies()
       .then((res) => {
-        console.log(isLoading);
         setSavedMovies(res);
       })
       .then(() => setIsLoading(false));
